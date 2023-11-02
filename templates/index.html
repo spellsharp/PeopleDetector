@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>YOLO-Object Detection</title>
+    <link rel="stylesheet" type="text/css" href="../static/index.css" />
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  </head>
+  <body>
+    <div class="App">
+      <div
+        style="
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+        "
+      >
+        <h1>Welcome to PeopleDetector.</h1>
+        <div
+          style="
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            max-width: 50%;
+          "
+        >
+          <div class="text-card">
+            The purpose of this website is to help you detect objects in any
+            input you give us. We use a YOLOv5 model to detect objects in your
+            input and then we mark them with a bounding box and a label.
+          </div>
+          <div class="text-card">
+            The best part is, you can download any of the output videos, at any
+            point and the output video will contain the class markings till that
+            point. You can download the output video in the loading screen that will pop up after you upload your input.
+          </div>
+          <div class="text-card">
+            Upload an image or a video that you want class-marked. You can do
+            that by manually uploading it or dropping it like it's hot right
+            below!
+          </div>
+        </div>
+      </div>
+      <header class="App-header">
+        <form
+          id="image-form"
+          action="/detect"
+          enctype="multipart/form-data"
+          method="post"
+          style="
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+          "
+        >
+          <h2>Upload or Drop an image below!</h2>
+          <input id="videoinput" type="file" name="video" required />
+          <button type="submit" name="send" id="sendbutton">Send</button>
+        </form>
+        <br />
+      </header>
+    </div>
+  </body>
+  <script>
+    const dropZone = document.getElementById("image-form");
+    const fileInput = document.getElementById("videoinput");
+
+    dropZone.addEventListener("dragover", (e) => {
+      e.preventDefault();
+      dropZone.classList.add("hover");
+    });
+
+    dropZone.addEventListener("dragleave", () => {
+      dropZone.classList.remove("hover");
+    });
+
+    dropZone.addEventListener("drop", (e) => {
+      e.preventDefault();
+      dropZone.classList.remove("hover");
+      const files = e.dataTransfer.files;
+      handleFiles(files);
+      submitFile();
+    });
+
+    fileInput.addEventListener("change", () => {
+      const files = fileInput.files;
+      handleFiles(files);
+      submitFile();
+    });
+
+    function handleFiles(files) {
+      fileInput.files = files;
+    }
+
+    function submitFile() {
+      document.getElementById("image-form").submit();
+    }
+  </script>
+</html>

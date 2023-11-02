@@ -1,4 +1,4 @@
-*MVP for YOLOv5-Flask integrated webapp.*
+<h1>MVP for YOLOv5-Flask integrated webapp.<h1>
 
 **How to use:**
 - Run `cd PeopleDetector` to change working directory in a terminal

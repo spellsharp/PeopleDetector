@@ -3,7 +3,7 @@
 <h4>How to use:<h4>
 <ul>
   <li>
-    Run `cd PeopleDetector` to change working directory in a terminal
+    Run `cd PeopleDetector` in a terminal to change working directory
   </li>
   <li>
     Then run `pip install -r requirements.txt`. Using an environment is suggested.

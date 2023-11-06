@@ -46,7 +46,7 @@ nvidia-nvjitlink-cu12==12.3.52
 nvidia-nvtx-cu12==12.1.105
 oauthlib==3.2.0
 opencv-python==4.6.0.66
-packaging==21.3
+packaging==23.2
 pandas==1.4.3
 parso==0.8.3
 pexpect==4.8.0
